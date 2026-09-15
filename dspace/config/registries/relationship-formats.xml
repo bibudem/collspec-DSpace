@@ -176,6 +176,18 @@
         <qualifier>latestForDiscovery</qualifier>
         <scope_note>Contains all uuids of JOURNALS which link to the current VOLUME via a "latest" relationship. In other words, this stores all relationships pointing to the current VOLUME from any JOURNAL, implying that the VOLUME is marked as "latest". Internally used by DSpace to support versioning. Do not manually add, remove or edit values.</scope_note>
     </dc-type>
+	
+	<dc-type>
+        <schema>relation</schema>
+        <element>isJournalOfIssue</element>
+        <scope_note>Contains all uuids of the "latest" JOURNALS that the current ISSUE links to via a relationship. In other words, this stores all relationships pointing from the current ISSUE to any JOURNAL where the JOURNAL is marked as "latest". Internally used by DSpace. Do not manually add, remove or edit values.</scope_note>
+    </dc-type>
+    <dc-type>
+        <schema>relation</schema>
+        <element>isJournalOfIssue</element>
+        <qualifier>latestForDiscovery</qualifier>
+        <scope_note>Contains all uuids of JOURNALS which link to the current ISSUE via a "latest" relationship. In other words, this stores all relationships pointing to the current ISSUE from any JOURNAL, implying that the VOLUME is marked as "latest". Internally used by DSpace to support versioning. Do not manually add, remove or edit values.</scope_note>
+    </dc-type>
 
     <dc-type>
         <schema>relation</schema>
@@ -188,6 +200,20 @@
         <qualifier>latestForDiscovery</qualifier>
         <scope_note>Contains all uuids of ISSUES which link to the current VOLUME via a "latest" relationship. In other words, this stores all relationships pointing to the current VOLUME from any ISSUE, implying that the VOLUME is marked as "latest". Internally used by DSpace to support versioning. Do not manually add, remove or edit values.</scope_note>
     </dc-type>
+	
+	<dc-type>
+        <schema>relation</schema>
+        <element>isIssueOfJournal</element>
+        <scope_note>Contains all uuids of the "latest" ISSUES that the current JOURNAL links to via a relationship. In other words, this stores all relationships pointing from the current JOURNAL to any ISSUE where the ISSUE is marked as "latest". Internally used by DSpace. Do not manually add, remove or edit values.</scope_note>
+    </dc-type>
+    <dc-type>
+        <schema>relation</schema>
+        <element>isIssueOfJournal</element>
+        <qualifier>latestForDiscovery</qualifier>
+        <scope_note>Contains all uuids of ISSUES which link to the current JOURNAL via a "latest" relationship. In other words, this stores all relationships pointing to the current JOURNAL from any ISSUE, implying that the VOLUME is marked as "latest". Internally used by DSpace to support versioning. Do not manually add, remove or edit values.</scope_note>
+    </dc-type>
+	
+	
 
     <dc-type>
         <schema>relation</schema>
