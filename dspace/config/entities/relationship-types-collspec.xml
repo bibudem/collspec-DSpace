@@ -144,4 +144,18 @@
             <max>1</max>
         </rightCardinality>
      </type>
+	 
+	 <!-- NIMA - ajout de raltion pour deux journaux -->
+	 <type>
+        <leftType>Journal</leftType>
+        <rightType>Journal</rightType>
+        <leftwardType>isContinuedBy</leftwardType>
+        <rightwardType>continues</rightwardType>
+        <leftCardinality>
+            <min>0</min>
+        </leftCardinality>
+        <rightCardinality>
+            <min>0</min>
+        </rightCardinality>
+     </type>
 </relationships>
