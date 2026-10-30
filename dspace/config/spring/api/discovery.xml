@@ -378,6 +378,15 @@
 				
 				<value>-location.coll:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3</value>
 				<value>-(search.resourcetype:Collection AND search.resourceid:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3)</value>
+				
+				<!-- Soutien à la recherche (communauté) -->
+				<value>-location.comm:040c86d8-87c0-42fc-823e-48eb321dfaf6</value>
+				<value>-(search.resourcetype:Community AND search.resourceid:040c86d8-87c0-42fc-823e-48eb321dfaf6)</value>
+				
+				<!-- Archives patrimoniales et mur de visualisation – Illustrations inuit -->
+				<value>-location.coll:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec</value>
+				<value>-(search.resourcetype:Collection AND search.resourceid:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec)</value>
+				
 			</list>
 		</property>
 	</bean>
@@ -420,6 +429,12 @@
 				<value>-location.coll:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3</value>
 				<!-- hide collection 3 object itself from site search -->
 				<value>-(search.resourcetype:Collection AND search.resourceid:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3)</value>
+				<!-- hide community Soutien à la recherche object itself from site search -->
+				<value>-location.comm:040c86d8-87c0-42fc-823e-48eb321dfaf6</value>
+				<value>-(search.resourcetype:Community AND search.resourceid:040c86d8-87c0-42fc-823e-48eb321dfaf6)</value>
+				<!-- hide collection Archives patrimoniales et mur de visualisation – Illustrations inuit object itself from site search -->
+				<value>-location.coll:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec</value>
+				<value>-(search.resourcetype:Collection AND search.resourceid:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec)</value>
 			</list>
 		</property>
 	</bean>
