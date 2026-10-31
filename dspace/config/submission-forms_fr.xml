@@ -1393,6 +1393,46 @@
         </value-pairs>
 
         <value-pairs value-pairs-name="common_types" dc-term="type">
+			<pair>
+                <displayed-value>Image</displayed-value>
+                <stored-value>Image</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Monographie</displayed-value>
+                <stored-value>Book</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Manuscrit</displayed-value>
+                <stored-value>Manuscript</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Affiche</displayed-value>
+                <stored-value>Poster</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Gravure</displayed-value>
+                <stored-value>Engraving</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Carte</displayed-value>
+                <stored-value>Map</stored-value>
+            </pair>
+			<pair>
+				<displayed-value>Périodique</displayed-value>
+				<stored-value>Periodical</stored-value>
+			</pair>
+            <pair>
+                <displayed-value>Partition musicale</displayed-value>
+                <stored-value>Musical Score</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Vidéo</displayed-value>
+                <stored-value>Video</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Texte</displayed-value>
+                <stored-value>Text</stored-value>
+            </pair>
             <pair>
                 <displayed-value>Animation</displayed-value>
                 <stored-value>Animation</stored-value>
@@ -1402,83 +1442,63 @@
                 <stored-value>Article</stored-value>
             </pair>
             <pair>
-                <displayed-value>Book</displayed-value>
-                <stored-value>Book</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Book chapter</displayed-value>
+                <displayed-value>Chapitre de livre</displayed-value>
                 <stored-value>Book chapter</stored-value>
             </pair>
             <pair>
-                <displayed-value>Dataset</displayed-value>
+                <displayed-value>Jeu de données</displayed-value>
                 <stored-value>Dataset</stored-value>
             </pair>
             <pair>
-                <displayed-value>Learning Object</displayed-value>
+                <displayed-value>Objet d'apprentissage</displayed-value>
                 <stored-value>Learning Object</stored-value>
             </pair>
             <pair>
-                <displayed-value>Image</displayed-value>
-                <stored-value>Image</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Image, 3-D</displayed-value>
+                <displayed-value>Image 3D</displayed-value>
                 <stored-value>Image, 3-D</stored-value>
             </pair>
             <pair>
-                <displayed-value>Map</displayed-value>
-                <stored-value>Map</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Musical Score</displayed-value>
-                <stored-value>Musical Score</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Plan or blueprint</displayed-value>
+                <displayed-value>Plan ou schéma</displayed-value>
                 <stored-value>Plan or blueprint</stored-value>
             </pair>
             <pair>
-                <displayed-value>Preprint</displayed-value>
+                <displayed-value>Prépublication</displayed-value>
                 <stored-value>Preprint</stored-value>
             </pair>
             <pair>
-                <displayed-value>Presentation</displayed-value>
+                <displayed-value>Présentation</displayed-value>
                 <stored-value>Presentation</stored-value>
             </pair>
             <pair>
-                <displayed-value>Recording, acoustical</displayed-value>
+                <displayed-value>Enregistrement acoustique</displayed-value>
                 <stored-value>Recording, acoustical</stored-value>
             </pair>
             <pair>
-                <displayed-value>Recording, musical</displayed-value>
+                <displayed-value>Enregistrement musical</displayed-value>
                 <stored-value>Recording, musical</stored-value>
             </pair>
             <pair>
-                <displayed-value>Recording, oral</displayed-value>
+                <displayed-value>Enregistrement oral</displayed-value>
                 <stored-value>Recording, oral</stored-value>
             </pair>
             <pair>
-                <displayed-value>Software</displayed-value>
+                <displayed-value>Logiciel</displayed-value>
                 <stored-value>Software</stored-value>
             </pair>
             <pair>
-                <displayed-value>Technical Report</displayed-value>
+                <displayed-value>Rapport technique</displayed-value>
                 <stored-value>Technical Report</stored-value>
             </pair>
             <pair>
-                <displayed-value>Thesis</displayed-value>
+                <displayed-value>Thèse</displayed-value>
                 <stored-value>Thesis</stored-value>
             </pair>
             <pair>
-                <displayed-value>Video</displayed-value>
-                <stored-value>Video</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Working Paper</displayed-value>
+                <displayed-value>Document de travail</displayed-value>
                 <stored-value>Working Paper</stored-value>
             </pair>
             <pair>
-                <displayed-value>Other</displayed-value>
+                <displayed-value>Autre</displayed-value>
                 <stored-value>Other</stored-value>
             </pair>
         </value-pairs>
