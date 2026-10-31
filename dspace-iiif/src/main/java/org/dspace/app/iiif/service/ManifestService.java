@@ -123,6 +123,36 @@ public class ManifestService extends AbstractResourceService {
 		Map.entry("mis", "Langue non codée"),
 		Map.entry("und", "Indéterminée")		
 	);
+	
+	private static final Map<String, String> TYPE_MAP = Map.ofEntries(
+		Map.entry("Image", "Image"),
+		Map.entry("Book", "Monographie"),
+		Map.entry("Manuscript", "Manuscrit"),
+		Map.entry("Poster", "Affiche"),
+		Map.entry("Engraving", "Gravure"),
+		Map.entry("Map", "Carte"),
+		Map.entry("Musical Score", "Partition musicale"),
+		Map.entry("Video", "Vidéo"),
+		Map.entry("Text", "Texte"),
+		Map.entry("Animation", "Animation"),
+		Map.entry("Article", "Article"),
+		Map.entry("Book chapter", "Chapitre de livre"),
+		Map.entry("Dataset", "Jeu de données"),
+		Map.entry("Learning Object", "Objet d'apprentissage"),
+		Map.entry("Image, 3-D", "Image 3D"),
+		Map.entry("Plan or blueprint", "Plan ou schéma"),
+		Map.entry("Preprint", "Prépublication"),
+		Map.entry("Presentation", "Présentation"),
+		Map.entry("Recording, acoustical", "Enregistrement acoustique"),
+		Map.entry("Recording, musical", "Enregistrement musical"),
+		Map.entry("Recording, oral", "Enregistrement oral"),
+		Map.entry("Software", "Logiciel"),
+		Map.entry("Technical Report", "Rapport technique"),
+		Map.entry("Thesis", "Thèse"),
+		Map.entry("Working Paper", "Document de travail"),
+		Map.entry("Periodical", "Périodique"),
+		Map.entry("Other", "Autre")
+	);
 
     @Autowired
     protected ItemService itemService;
@@ -322,6 +352,27 @@ public class ManifestService extends AbstractResourceService {
 					continue;
 				}
 				// ---- END LANGUAGE TRANSLATION ---- //
+				
+				// ---- TRANSLATE RESOURCE TYPE ---- //
+				if ("dc".equals(schema) && "type".equals(element) && qualifier == null) {
+					for (MetadataValue typeMeta : metadata) {
+						try {
+							if (metadataExposureService.isHidden(context,
+									typeMeta.getMetadataField().getMetadataSchema().getName(),
+									typeMeta.getMetadataField().getElement(),
+									typeMeta.getMetadataField().getQualifier())) {
+								continue;
+							}
+						} catch (SQLException e) {
+							throw new RuntimeException(e);
+						}
+						String type = typeMeta.getValue().trim();
+						String humanLabel = TYPE_MAP.getOrDefault(type, type);
+						manifestGenerator.addMetadata(field, humanLabel);
+					}
+					continue; // skip regular processing for this field
+				}
+				// ---- END RESOURCE TYPE TRANSLATION ---- //
 
 				// ---- SPLIT LABELLED dc.description VALUES ---- //
 				if ("dc".equals(schema) && "description".equals(element) && qualifier == null) {
