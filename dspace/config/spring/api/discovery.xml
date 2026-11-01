@@ -2825,6 +2825,7 @@
         <property name="metadataFields">
             <list>
                 <value>dc.type</value>
+				<value>dspace.entity.type</value>
             </list>
         </property>
     </bean>
