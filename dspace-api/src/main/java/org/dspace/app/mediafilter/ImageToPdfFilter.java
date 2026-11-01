@@ -1,16 +1,20 @@
-// Nima : nouveau ajout - 2026-10-29
-
 package org.dspace.app.mediafilter;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
-import org.apache.pdfbox.io.IOUtils;
+
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
 import org.dspace.content.Item;
 
 public class ImageToPdfFilter extends MediaFilter implements FormatFilter {
@@ -22,7 +26,7 @@ public class ImageToPdfFilter extends MediaFilter implements FormatFilter {
 
     @Override
     public String getBundleName() {
-        return "SEEALSO"; 
+        return "SEEALSO";
     }
 
     @Override
@@ -32,47 +36,51 @@ public class ImageToPdfFilter extends MediaFilter implements FormatFilter {
 
     @Override
     public String getFormatString() {
-        // Tells DSpace to explicitly register this bitstream as an Adobe PDF format type
+        // Register the generated bitstream as an Adobe PDF format in DSpace
         return "Adobe PDF";
     }
 
     @Override
-    public InputStream getDestinationStream(Item item, InputStream sourceStream, boolean verbose) 
+    public InputStream getDestinationStream(Item item, InputStream sourceStream, boolean verbose)
             throws Exception {
-        
-        PipedOutputStream outputStream = new PipedOutputStream();
-        PipedInputStream inputStream = new PipedInputStream(outputStream);
 
-        // Pass the live incoming stream safely to our processing thread
-        Thread pdfThread = new Thread(() -> {
-            try (PDDocument doc = new PDDocument();
-                 InputStream imageSrc = sourceStream) {
-                
-                PDPage page = new PDPage();
-                doc.addPage(page);
+        BufferedImage image = ImageIO.read(sourceStream);
 
-                java.awt.image.BufferedImage bimg = javax.imageio.ImageIO.read(imageSrc);
-                if (bimg == null) {
-                    throw new java.io.IOException("Unsupported, corrupt, or unreadable image file format.");
-                }
+        if (image == null) {
+            throw new IOException(
+                "Unsupported, corrupt, or unreadable image file format.");
+        }
 
-                PDImageXObject pdImage = LosslessFactory.createFromImage(doc, bimg);
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage();
+            document.addPage(page);
 
-                try (PDPageContentStream contents = new PDPageContentStream(doc, page)) {
-                    float scale = Math.min(page.getMediaBox().getWidth() / pdImage.getWidth(), 
-                                           page.getMediaBox().getHeight() / pdImage.getHeight());
-                    contents.drawImage(pdImage, 0, 0, pdImage.getWidth() * scale, pdImage.getHeight() * scale);
-                }
+            PDImageXObject pdfImage =
+                LosslessFactory.createFromImage(document, image);
 
-                doc.save(outputStream);
-            } catch (Exception e) {
-                // Thread boundary isolation containment
-            } finally {
-                IOUtils.closeQuietly(outputStream);
+            try (PDPageContentStream contentStream =
+                    new PDPageContentStream(document, page)) {
+
+                float pageWidth = page.getMediaBox().getWidth();
+                float pageHeight = page.getMediaBox().getHeight();
+
+                float scale = Math.min(
+                    pageWidth / pdfImage.getWidth(),
+                    pageHeight / pdfImage.getHeight());
+
+                float drawWidth = pdfImage.getWidth() * scale;
+                float drawHeight = pdfImage.getHeight() * scale;
+
+                float x = (pageWidth - drawWidth) / 2;
+                float y = (pageHeight - drawHeight) / 2;
+
+                contentStream.drawImage(pdfImage, x, y, drawWidth, drawHeight);
             }
-        });
 
-        pdfThread.start();
-        return inputStream;
+            ByteArrayOutputStream pdfOutput = new ByteArrayOutputStream();
+            document.save(pdfOutput);
+
+            return new ByteArrayInputStream(pdfOutput.toByteArray());
+        }
     }
 }
