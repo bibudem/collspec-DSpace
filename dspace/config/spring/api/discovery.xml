@@ -370,14 +370,9 @@
 				<value>(search.resourcetype:Item AND latestVersion:true) OR search.resourcetype:Collection OR search.resourcetype:Community</value>
 				<value>-withdrawn:true AND -discoverable:false</value>
 				
+				<!-- Images d'aménagement -->
 				<value>-location.coll:463625e1-602d-4844-a94f-5df83c681054</value>
 				<value>-(search.resourcetype:Collection AND search.resourceid:463625e1-602d-4844-a94f-5df83c681054)</value>
-				
-				<value>-location.coll:b9047ea9-57cb-4833-af4a-b8ab68dfea52</value>
-				<value>-(search.resourcetype:Collection AND search.resourceid:b9047ea9-57cb-4833-af4a-b8ab68dfea52)</value>
-				
-				<value>-location.coll:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3</value>
-				<value>-(search.resourcetype:Collection AND search.resourceid:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3)</value>
 				
 				<!-- Soutien à la recherche (communauté) -->
 				<value>-location.comm:040c86d8-87c0-42fc-823e-48eb321dfaf6</value>
@@ -386,6 +381,10 @@
 				<!-- Archives patrimoniales et mur de visualisation – Illustrations inuit -->
 				<value>-location.coll:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec</value>
 				<value>-(search.resourcetype:Collection AND search.resourceid:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec)</value>
+				
+				<!-- Les archives au grand jour -->
+				<value>-location.coll:7a0a8a46-dc90-446a-9a3f-fa6ffd8bdc3a</value>
+				<value>-(search.resourcetype:Collection AND search.resourceid:7a0a8a46-dc90-446a-9a3f-fa6ffd8bdc3a)</value>
 				
 			</list>
 		</property>
@@ -417,24 +416,21 @@
 			<list>
 				<value>(search.resourcetype:Item AND latestVersion:true) OR search.resourcetype:Collection OR search.resourcetype:Community</value>
 				<value>-withdrawn:true AND -discoverable:false</value>
-				<!-- hide items belonging to hidden collection 1 -->
+				<!-- hide items belonging to Images d'aménagement -->
 				<value>-location.coll:463625e1-602d-4844-a94f-5df83c681054</value>
-				<!-- hide collection 1 object itself from site search -->
+				<!-- hide Images d'aménagement object itself from site search -->
 				<value>-(search.resourcetype:Collection AND search.resourceid:463625e1-602d-4844-a94f-5df83c681054)</value>
-				<!-- hide items belonging to hidden collection 2 -->
-				<value>-location.coll:b9047ea9-57cb-4833-af4a-b8ab68dfea52</value>
-				<!-- hide collection 2 object itself from site search -->
-				<value>-(search.resourcetype:Collection AND search.resourceid:b9047ea9-57cb-4833-af4a-b8ab68dfea52)</value>
-				<!-- hide items belonging to hidden collection 3 -->
-				<value>-location.coll:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3</value>
-				<!-- hide collection 3 object itself from site search -->
-				<value>-(search.resourcetype:Collection AND search.resourceid:e4a7d3ab-2a62-46f9-8d71-c66ebf9cdbe3)</value>
 				<!-- hide community Soutien à la recherche object itself from site search -->
 				<value>-location.comm:040c86d8-87c0-42fc-823e-48eb321dfaf6</value>
 				<value>-(search.resourcetype:Community AND search.resourceid:040c86d8-87c0-42fc-823e-48eb321dfaf6)</value>
 				<!-- hide collection Archives patrimoniales et mur de visualisation – Illustrations inuit object itself from site search -->
 				<value>-location.coll:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec</value>
 				<value>-(search.resourcetype:Collection AND search.resourceid:699d9a2c-27dd-4bc3-b74f-30d0a171c2ec)</value>
+				<value>-withdrawn:true AND -discoverable:false</value>
+				<!-- hide items belonging to Les archives au grand jour -->
+				<value>-location.coll:7a0a8a46-dc90-446a-9a3f-fa6ffd8bdc3a</value>
+				<!-- hide Les archives au grand jour object itself from site search -->
+				<value>-(search.resourcetype:Collection AND search.resourceid:7a0a8a46-dc90-446a-9a3f-fa6ffd8bdc3a)</value>
 			</list>
 		</property>
 	</bean>
